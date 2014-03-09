@@ -29,7 +29,12 @@ public class PointCharge extends Obstacle {
 		
 		//double distanceS = Math.pow( this.x - electronX ,2) + Math.pow( this.y - electronY,2);
 		//return force.FromMagDelta(magnatude/distanceS, this.x - electronX, this.y - electronY);
-		return force.FromMagDelta(1, this.x - electronX, this.y - electronY);
+		if(direction == PLUS){
+			return force.FromMagDelta(-1, this.x - electronX, this.y - electronY);
+		}
+		else{
+			return force.FromMagDelta(1, this.x - electronX, this.y - electronY);
+		}
 	}
 
 	@Override
