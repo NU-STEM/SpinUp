@@ -33,10 +33,5 @@ public class ChargedPlate extends Obstacle {
 		canvas.drawLine((float)x ,(float) y+height,(float) x+500 , (float)y+height, lineStyle);
 
 	}
-	@Override
-	public void move(double distanceY) {
-		this.y +=distanceY;
-		
-	}
 
 }

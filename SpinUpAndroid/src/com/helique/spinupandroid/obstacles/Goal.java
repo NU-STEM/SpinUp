@@ -8,7 +8,7 @@ public class Goal extends Obstacle {
 
 	@Override
 	public force calculateForce(double electronX, double electronY) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

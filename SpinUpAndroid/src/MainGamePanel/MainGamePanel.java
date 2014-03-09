@@ -12,6 +12,7 @@ import com.helique.spinupandroid.math.force;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -32,10 +33,21 @@ public class MainGamePanel extends SurfaceView implements
 
 	private static final String TAG = MainGamePanel.class.getSimpleName();
 	
+	public static Bitmap ChargedPlateUp;
+	public static Bitmap ChargedPlateDown;
+	public static Bitmap ChargedPlateLeft;
+	public static Bitmap ChargedPlateRight;
+	
+	public static Bitmap InductorIn;
+	public static Bitmap InductorOut;
+	
+	public static Bitmap PointChargePlus;
+	public static Bitmap PointChargeMinus;
+	
 	private MainThread thread;
 	private electron playerElectron;
 	private Overlay magneticOverlay;
-	private PathLevel infinateLevel;
+	private PathLevel level;
 	private int surfaceHeight;
 	private int surfaceWidth;
 	private ArrayList<Obstacle> obstacleList;
@@ -51,11 +63,10 @@ public class MainGamePanel extends SurfaceView implements
 		getHolder().addCallback(this);
 		playing = true;
 		// create droid and load bitmap
+		InductorIn = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		InductorOut = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
 		playerElectron = new electron(BitmapFactory.decodeResource(getResources(), R.drawable.electronplus), surfaceWidth/2, surfaceHeight*3/4,1,0);
-		magneticOverlay = new Overlay(BitmapFactory.decodeResource(getResources(), R.drawable.redoverlay),BitmapFactory.decodeResource(getResources(), R.drawable.blueoverlay), 0,0);
-		infinateLevel= new PathLevel(300, 300);
-		obstacleList = new ArrayList<Obstacle>();
-		obstacleList.add(new ChargedPlate(100,100));
+		level = new PathLevel();
 		// create the game loop thread
 		thread = new MainThread(getHolder(), this);
 		
@@ -72,9 +83,8 @@ public class MainGamePanel extends SurfaceView implements
 	public void surfaceCreated(SurfaceHolder holder) {
 		surfaceHeight = holder.getSurfaceFrame().height();
 		surfaceWidth = holder.getSurfaceFrame().width();
-		playerElectron.setX(surfaceWidth/2);
-		playerElectron.setY(surfaceHeight*3/4);
-		infinateLevel.xOffset = surfaceWidth/2;
+		
+		
 		// at this point the surface is created and
 		// we can safely start the game loop
 		if(thread.getState() == Thread.State.NEW){
@@ -122,12 +132,8 @@ public class MainGamePanel extends SurfaceView implements
 					//playing = false;
 				}else{
 					obstacleList = new ArrayList<Obstacle>();
-					obstacleList.add(new ChargedPlate(100,100));
-					playerElectron.setX(surfaceWidth/2);
-					playerElectron.setY(surfaceHeight*3/4);
-					playerElectron.Vx = playerElectron.vMax;
-					playerElectron.Vy = 0;
-					playing = true;
+					
+					
 				}
 			}
 		} if (event.getAction() == MotionEvent.ACTION_MOVE) {
@@ -149,8 +155,7 @@ public class MainGamePanel extends SurfaceView implements
 	public void render(Canvas canvas) {
 		canvas.drawColor(Color.BLACK);
 		playerElectron.draw(canvas);
-		infinateLevel.draw(canvas);
-		magneticOverlay.draw(canvas);
+		
 		for(Obstacle o: obstacleList){
 			o.draw(canvas);
 		}

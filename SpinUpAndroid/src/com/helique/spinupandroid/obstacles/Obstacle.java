@@ -9,7 +9,6 @@ public abstract class Obstacle {
 	int width;
 	public double x;
 	public double y;
-	public abstract void move(double distanceY);
 	public abstract force calculateForce(double electronX, double electronY);
 	public abstract void draw(Canvas canvas);
 	

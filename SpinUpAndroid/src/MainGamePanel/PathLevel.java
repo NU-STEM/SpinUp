@@ -1,25 +1,45 @@
 package MainGamePanel;
 
+import java.util.ArrayList;
+
+import com.helique.spinupandroid.obstacles.Obstacle;
+
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 
 public class PathLevel {
+	int[][] level1 = {
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+			{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+	};
 	public Paint lineStyle;
 	
 	public int width;
-	public int xOffset;
-	public PathLevel(int Width, int x){
-		this.width = Width;
-		this.xOffset =x;
-		lineStyle = new Paint();
-		lineStyle.setAlpha(255);
-		lineStyle.setColor(Color.rgb(255, 255, 255));
-		lineStyle.setStrokeWidth(3f);
+	public int height;
+	
+	static public ArrayList<Obstacle> PathLevel(int levelNumber, int Width, int Height){
+		ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
+		int blockSize = 75;
+		return null;
+		
+		
 	}
 	public void draw(Canvas canvas) {
-		canvas.drawLine(xOffset - width/2, 0, xOffset - width/2, canvas.getHeight(), lineStyle);
-		canvas.drawLine(xOffset + width/2, 0, xOffset + width/2, canvas.getHeight(), lineStyle);
+		
 	}
 }
