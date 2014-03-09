@@ -22,8 +22,15 @@ public class Inductor extends Obstacle {
 		}
 	}
 	@Override
-	public force calculateForce(double electronX, double electronY) {
-		// TODO Auto-generated method stub
+	public force calculateForce(double electronX, double electronY , double Vx, double Vy) {
+		if((electronX > this.x - 50/2) && (electronX < (this.x+ 50 /2)) && (electronY > this.y - 50/2) && (electronY < (this.y+ 50 /2))){
+			if(direction == IN){
+				return force.FromMagDelta(.025,Vy,-Vx);
+				
+			}else{
+				return force.FromMagDelta(.025,-Vy,Vx);
+			}
+		}
 		return null;
 	}
 

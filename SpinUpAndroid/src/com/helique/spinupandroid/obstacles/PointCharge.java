@@ -25,7 +25,7 @@ public class PointCharge extends Obstacle {
 			image = MainGamePanel.MainGamePanel.PointChargeMinus;
 		}
 	}
-	public force calculateForce(double electronX, double electronY) {
+	public force calculateForce(double electronX, double electronY , double Vx, double Vy) {
 		
 		//double distanceS = Math.pow( this.x - electronX ,2) + Math.pow( this.y - electronY,2);
 		//return force.FromMagDelta(magnatude/distanceS, this.x - electronX, this.y - electronY);

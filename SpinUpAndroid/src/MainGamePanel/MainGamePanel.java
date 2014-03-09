@@ -200,7 +200,7 @@ public class MainGamePanel extends SurfaceView implements
 			
 			force magneticForce = new force(0,0);
 			for(Obstacle o: obstacleList){
-				magneticForce.add(o.calculateForce(playerElectron.getX(),playerElectron.getY()));
+				magneticForce.add(o.calculateForce(playerElectron.getX(),playerElectron.getY(),playerElectron.Vx, playerElectron.Vy));
 			}
 			playerElectron.update(magneticForce);
 			

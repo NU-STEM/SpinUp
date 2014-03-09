@@ -7,7 +7,7 @@ import com.helique.spinupandroid.math.force;
 public class Goal extends Obstacle {
 
 	@Override
-	public force calculateForce(double electronX, double electronY) {
+	public force calculateForce(double electronX, double electronY, double Vx, double Vy) {
 		
 		return null;
 	}
