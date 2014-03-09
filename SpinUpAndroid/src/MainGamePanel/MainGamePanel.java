@@ -65,8 +65,14 @@ public class MainGamePanel extends SurfaceView implements
 		// create droid and load bitmap
 		InductorIn = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
 		InductorOut = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		ChargedPlateUp = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		ChargedPlateDown = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		ChargedPlateLeft = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		ChargedPlateRight = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		PointChargePlus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		PointChargeMinus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
 		playerElectron = new electron(BitmapFactory.decodeResource(getResources(), R.drawable.electronplus), surfaceWidth/2, surfaceHeight*3/4,1,0);
-		level = new PathLevel();
+		obstacleList = PathLevel.parseLevel(0,0,0);
 		// create the game loop thread
 		thread = new MainThread(getHolder(), this);
 		
@@ -128,10 +134,10 @@ public class MainGamePanel extends SurfaceView implements
 			} else {
 				if(playing == true){
 					this.fieldIn = !this.fieldIn;
-					magneticOverlay.flipField();
+					
 					//playing = false;
 				}else{
-					obstacleList = new ArrayList<Obstacle>();
+					
 					
 					
 				}
@@ -154,7 +160,7 @@ public class MainGamePanel extends SurfaceView implements
 
 	public void render(Canvas canvas) {
 		canvas.drawColor(Color.BLACK);
-		playerElectron.draw(canvas);
+		//playerElectron.draw(canvas);
 		
 		for(Obstacle o: obstacleList){
 			o.draw(canvas);
@@ -190,30 +196,9 @@ public class MainGamePanel extends SurfaceView implements
 		if(playing){
 			force magneticForce = null;
 			
-			if(this.fieldIn){
-				magneticForce = force.FromMagDelta(MagneticField ,-playerElectron.Vy, playerElectron.Vx);
-			}else {
-				magneticForce = force.FromMagDelta(MagneticField , playerElectron.Vy, -playerElectron.Vx);
-			}
-			//magneticForce = force.FromMagDelta(5 ,0, -1);
-			for(Obstacle o: obstacleList){
-				magneticForce.add(o.calculateForce(playerElectron.getX(), playerElectron.getY()));
-			}
 			
-			// Update the lone droid
-			playerElectron.update(magneticForce);
-			if(playerElectron.getY()<600){
-				playerElectron.setY(600); 
-				for(Obstacle o: obstacleList){
-					o.move(-playerElectron.Vy);
-					if(o.y> 1300){
-						obstacleList.remove(o);
-					}
-				}
-			}
-			if( (playerElectron.getX() > (this.surfaceWidth/2 + 150)) || (playerElectron.getX() < (this.surfaceWidth/2 - 150)) ){
-				playing = false;
-			}
+			
+			
 		}
 	}
 

@@ -18,10 +18,7 @@ public class Goal extends Obstacle {
 
 	}
 
-	@Override
-	public void move(double distanceY) {
-		// TODO Auto-generated method stub
-		
-	}
+	
+	
 
 }
