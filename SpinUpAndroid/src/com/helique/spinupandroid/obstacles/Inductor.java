@@ -25,10 +25,10 @@ public class Inductor extends Obstacle {
 	public force calculateForce(double electronX, double electronY , double Vx, double Vy) {
 		if((electronX > this.x - 50/2) && (electronX < (this.x+ 50 /2)) && (electronY > this.y - 50/2) && (electronY < (this.y+ 50 /2))){
 			if(direction == IN){
-				return force.FromMagDelta(.1,Vy,-Vx);
+				return force.FromMagDelta(.2,Vy,-Vx);
 				
 			}else{
-				return force.FromMagDelta(.1,-Vy,Vx);
+				return force.FromMagDelta(.2,-Vy,Vx);
 			}
 		}
 		return null;

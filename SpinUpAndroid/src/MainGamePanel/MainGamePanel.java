@@ -138,10 +138,14 @@ public class MainGamePanel extends SurfaceView implements
 				if(playing == true){
 					this.fieldIn = !this.fieldIn;
 					
-					//playing = false;
+					playing = false;
 				}else{
 					
-					
+					playerElectron.setX(surfaceWidth/4);
+					playerElectron.setY(surfaceHeight*1/3);
+					playerElectron.Vx =1;
+					playerElectron.Vy =0;
+					playing = true;
 					
 				}
 			}

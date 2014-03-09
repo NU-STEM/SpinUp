@@ -11,7 +11,7 @@ public class electron {
 	private double y;			// the Y coordinate
 	private boolean touched;	// if droid is touched/picked up
 		// the speed with its directions
-	double vMax = 10;
+	double vMax = 5;
 	double Vx;
 	double Vy;
 	public electron(Bitmap bitmap, int x, int y, double setVx, double setVy) {
