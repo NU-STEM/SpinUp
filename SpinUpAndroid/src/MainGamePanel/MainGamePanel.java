@@ -92,7 +92,8 @@ public class MainGamePanel extends SurfaceView implements
 		surfaceHeight = holder.getSurfaceFrame().height();
 		surfaceWidth = holder.getSurfaceFrame().width();
 		
-		
+		playerElectron.setX(surfaceWidth/4);
+		playerElectron.setY(surfaceHeight*1/3);
 		// at this point the surface is created and
 		// we can safely start the game loop
 		if(thread.getState() == Thread.State.NEW){

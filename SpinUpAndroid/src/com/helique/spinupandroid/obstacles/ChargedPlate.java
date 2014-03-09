@@ -1,5 +1,6 @@
 package com.helique.spinupandroid.obstacles;
 
+import MainGamePanel.electron;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -40,8 +41,17 @@ public class ChargedPlate extends Obstacle {
 	}
 	@Override
 	public force calculateForce(double electronX, double electronY) {
-		if ((electronY > this.y) && (electronY < (this.y+this.height))){
-			return force.FromMagDelta(1, this.x - electronX, 0);	
+		if ((direction == RIGHT && electronX> this.x) && (electronY > this.y - 50/2) && (electronY < (this.y+ 50 /2))){
+			return force.FromMagDelta(.25, this.x - electronX, 0);	
+		} 
+		if ((direction == LEFT && electronX< this.x) && (electronY > this.y - 50/2) && (electronY < (this.y+ 50 /2))){
+			return force.FromMagDelta(.25, this.x - electronX, 0);	
+		}
+		if ((direction == UP && electronY < this.y) && (electronX > this.x - 50/2) && (electronX < (this.x+ 50 /2))){
+			return force.FromMagDelta(.25,  0, electronY - this.y );	
+		} 
+		if ((direction == DOWN && electronY > this.y) && (electronX > this.x - 50/2) && (electronX < (this.x+ 50 /2)) ){
+			return force.FromMagDelta(.25, 0,electronY - this.y  );	
 		} 
 		return null;
 		
