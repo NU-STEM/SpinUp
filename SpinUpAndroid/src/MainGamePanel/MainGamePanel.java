@@ -63,14 +63,14 @@ public class MainGamePanel extends SurfaceView implements
 		getHolder().addCallback(this);
 		playing = true;
 		// create droid and load bitmap
-		InductorIn = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		InductorOut = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		ChargedPlateUp = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		ChargedPlateDown = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		ChargedPlateLeft = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		ChargedPlateRight = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		PointChargePlus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		PointChargeMinus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
+		InductorIn = BitmapFactory.decodeResource(getResources(), R.drawable.fieldin);
+		InductorOut = BitmapFactory.decodeResource(getResources(), R.drawable.fieldout);
+		ChargedPlateUp = BitmapFactory.decodeResource(getResources(), R.drawable.upplate);
+		ChargedPlateDown = BitmapFactory.decodeResource(getResources(), R.drawable.downplate);
+		ChargedPlateLeft = BitmapFactory.decodeResource(getResources(), R.drawable.leftplate);
+		ChargedPlateRight = BitmapFactory.decodeResource(getResources(), R.drawable.rightplate);
+		PointChargePlus = BitmapFactory.decodeResource(getResources(), R.drawable.pointchargeplus);
+		PointChargeMinus = BitmapFactory.decodeResource(getResources(), R.drawable.pointchargeminus);
 		playerElectron = new electron(BitmapFactory.decodeResource(getResources(), R.drawable.electronplus), surfaceWidth/2, surfaceHeight*3/4,1,0);
 		obstacleList = PathLevel.parseLevel(0,0,0);
 		// create the game loop thread
