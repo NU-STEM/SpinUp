@@ -22,9 +22,18 @@ public final class R {
     }
     public static final class drawable {
         public static final int blueoverlay=0x7f020000;
-        public static final int electronplus=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int redoverlay=0x7f020003;
+        public static final int downplate=0x7f020001;
+        public static final int electronminus=0x7f020002;
+        public static final int electronplus=0x7f020003;
+        public static final int fieldin=0x7f020004;
+        public static final int fieldout=0x7f020005;
+        public static final int ic_launcher=0x7f020006;
+        public static final int leftplate=0x7f020007;
+        public static final int pointchargeminus=0x7f020008;
+        public static final int pointchargeplus=0x7f020009;
+        public static final int redoverlay=0x7f02000a;
+        public static final int rightplate=0x7f02000b;
+        public static final int upplate=0x7f02000c;
     }
     public static final class id {
         public static final int action_settings=0x7f080000;
