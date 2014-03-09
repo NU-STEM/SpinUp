@@ -50,7 +50,7 @@ public class ChargedPlate extends Obstacle {
 	@Override
 	public void draw(Canvas canvas) {
 		canvas.drawBitmap(image, (int)x - (image.getWidth() / 2), (int)y - (image.getHeight() / 2), null);
-
+		
 	}
 
 }

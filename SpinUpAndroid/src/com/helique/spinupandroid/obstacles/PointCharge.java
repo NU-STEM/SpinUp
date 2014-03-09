@@ -9,6 +9,7 @@ import com.helique.spinupandroid.math.force;
 
 public class PointCharge extends Obstacle {
 	
+	int magnatude = 2;
 	public static final String PLUS = "plus";
 	public static final String MINUS = "minus";
 	String direction;
@@ -25,8 +26,10 @@ public class PointCharge extends Obstacle {
 		}
 	}
 	public force calculateForce(double electronX, double electronY) {
-		// TODO Auto-generated method stub
-		return null;
+		
+			
+		
+		return force.FromMagDelta(magnatude/(Math.pow(this.x - electronX,2)+Math.pow(this.y - electronY,2)), this.x - electronX, this.y - electronY);
 	}
 
 	@Override

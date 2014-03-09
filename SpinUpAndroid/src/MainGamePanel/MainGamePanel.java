@@ -71,7 +71,7 @@ public class MainGamePanel extends SurfaceView implements
 		ChargedPlateRight = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
 		PointChargePlus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
 		PointChargeMinus = BitmapFactory.decodeResource(getResources(), R.drawable.electronplus);
-		playerElectron = new electron(BitmapFactory.decodeResource(getResources(), R.drawable.electronplus), surfaceWidth/2, surfaceHeight*3/4,1,0);
+		playerElectron = new electron(BitmapFactory.decodeResource(getResources(), R.drawable.electronplus), surfaceWidth/2, surfaceHeight*3/4,0,0);
 		obstacleList = PathLevel.parseLevel(0,0,0);
 		// create the game loop thread
 		thread = new MainThread(getHolder(), this);
@@ -160,7 +160,7 @@ public class MainGamePanel extends SurfaceView implements
 
 	public void render(Canvas canvas) {
 		canvas.drawColor(Color.BLACK);
-		//playerElectron.draw(canvas);
+		playerElectron.draw(canvas);
 		
 		for(Obstacle o: obstacleList){
 			o.draw(canvas);
@@ -194,7 +194,12 @@ public class MainGamePanel extends SurfaceView implements
 //			playerElectron.getSpeed().toggleYDirection();
 //		}
 		if(playing){
-			force magneticForce = null;
+			
+			force magneticForce = new force(0,0);
+			for(Obstacle o: obstacleList){
+				magneticForce.add(o.calculateForce(playerElectron.getX(),playerElectron.getY()));
+			}
+			playerElectron.update(magneticForce);
 			
 			
 			
